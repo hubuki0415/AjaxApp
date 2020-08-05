@@ -7,10 +7,12 @@ class PostsController < ApplicationController
 
   def create
     Post.create(content: params[:content])
+
     redirect_to action: :index
   end
 
   def checked
+    
     post = Post.find(params[:id])
     if post.checked then
       post.update(checked: false)
